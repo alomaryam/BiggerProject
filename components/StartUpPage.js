@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import ImageBackground from "react-native";
 import BackgroundIMG from "../assets/BackgroundIMG6.gif";
-
+import HubLogo from "../assets/HubLogo.png"
 //Styling
 
 export const HomeBackground = styled.ImageBackground`
@@ -11,26 +11,36 @@ export const HomeBackground = styled.ImageBackground`
   height: 100%;
     justify-content:center;
 `;
+
+export const HubLogoImage = styled.Image`
+  flex: 1;
+  margin-top:1%;
+  padding:30%;
+  width: 40%;
+  height: 40%;
+    justify-content:center;
+`;
 export const TopStyling = styled.View`
   height: 40%;
-  
-  background-color:rgba(221, 190, 169, 0.6);
+  background-color:rgba(189, 178, 255, 0.62);
   align-items: center;
   /* justify-content: center; */
 `;
 
 export const Title = styled.Text`
-padding: 15%;
+/* padding: 15%; */
+margin:5%;
   color: #f5f1ed;
   font-size: 35;
-  text-align: left;
+  /* text-align: center; */
 `;
 
 export const Sentence = styled.Text`
 
 padding: 1%;
   color: #f5f1ed;
-  font-size: 20;
+  font-size: 20px;
+  margin:4%;
   /* text-align: center; */
 `;
 
@@ -45,16 +55,23 @@ flex-direction:row;
   align-items:center;
   justify-content:space-between;
 `;
+export const ButtonView = styled.View`
+ border-style:none;
+  border: 10px;
+  border-color: rgb(189, 178, 255);
+  margin:1%;
+  border-radius:100px;
+`;
 
 export const ButtonStyled = styled.Text`
-  font-size: 15;
+  font-size: 15px;
   color: white;
   font-weight: bold;
-  
-  width: 200px;
+  width: 180px;
   text-align: center;
-  padding: 5%;
-  background-color:rgba(221, 190, 169, 0.6);
+  padding: 3%;
+  background-color:rgb(189, 178, 255);
+
 `;
 
 //**************** Function *************
@@ -66,17 +83,22 @@ const StartUp = ({ navigation }) => {
           <HomeBackground source={BackgroundIMG}>
         <TopStyling>
      
-         
+         <HubLogoImage source={HubLogo} ></HubLogoImage>
         </TopStyling>
         <Title>Get Started ...</Title>
           <Sentence>have the ability to connect with friends and family ...</Sentence>
         <BottomStyling>
+         <ButtonView>
           <ButtonStyled onPress={() => navigation.navigate("SignIn")}>
             Sign In
           </ButtonStyled>
+          </ButtonView>
+          <ButtonView>
+
           <ButtonStyled onPress={() => navigation.navigate("SignUp")}>
             Sign Up
           </ButtonStyled>
+          </ButtonView>
           {/* <ButtonStyled onPress={() => navigation.navigate("Rooms")}>
             Or Here
           </ButtonStyled> */}
