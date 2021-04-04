@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components/native";
 
-// export const HomeBackground = styled.View`
-//   background-color: blue;
-//   flex: 1;
-//   width: 100%;
-//   height: 100%;
-// `;
+export const HomeBackground = styled.View`
+  background-color: blue;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+`;
 
 export const TopStyling = styled.View`
   height: 40%;
