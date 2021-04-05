@@ -4,6 +4,7 @@ import { StyleSheet, View } from "react-native";
 import StartUp from "./components/StartUpPage";
 import SignIn from "./components/SignInPage";
 import SignUp from "./components/SignUpPage";
+import Rooms from "./components/RoomsPage";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -14,9 +15,16 @@ export default function App() {
     <View style={styles.container}>
       <NavigationContainer>
         <Navigator>
-          <Screen name="StartUp" component={StartUp} />
+          <Screen
+            name="StartUp"
+            component={StartUp}
+            options={{
+              headerShown: false,
+            }}
+          />
           <Screen name="SignIn" component={SignIn} />
           <Screen name="SignUp" component={SignUp} />
+          <Screen name="Rooms" component={Rooms} />
         </Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
