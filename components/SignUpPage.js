@@ -13,13 +13,12 @@ const SignUp = ({ navigation }) => {
       <TextInput style={styles.input} placeholder="First Name" />
       <TextInput style={styles.input} placeholder="Last Name" />
       <TextInput style={styles.input} placeholder="Email" />
-      <TextInput style={styles.input} placeholder="Phone Number" />
       <TextInput style={styles.input} placeholder="Username" />
       <TextInput style={styles.input} placeholder="Password" />
 
       <TouchableOpacity
         style={styles.submitButton}
-        onPress={() => navigation.navigate("SignIn")}
+        onPress={() => navigation.navigate("Dashboard")}
       >
         <Text style={styles.submitButtonText}> Sign Up </Text>
       </TouchableOpacity>

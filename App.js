@@ -4,7 +4,7 @@ import { StyleSheet, View } from "react-native";
 import StartUp from "./components/StartUpPage";
 import SignIn from "./components/SignInPage";
 import SignUp from "./components/SignUpPage";
-import Rooms from "./components/RoomsPage";
+import Tabs from "./components/Tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -24,7 +24,13 @@ export default function App() {
           />
           <Screen name="SignIn" component={SignIn} />
           <Screen name="SignUp" component={SignUp} />
-          <Screen name="Rooms" component={Rooms} />
+          <Screen
+            name="Dashboard"
+            component={Tabs}
+            options={{
+              headerLeft: null,
+            }}
+          />
         </Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
