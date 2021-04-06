@@ -22,7 +22,7 @@ class AuthStore {
   //sign up
   signup = async (userData) => {
     try {
-      const res = await instance.post("/singup", userData);
+      const res = await instance.post("/users/signup", userData);
       this.setUser(res.data.token);
       console.log("signup", res.data.token);
     } catch (error) {

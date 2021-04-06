@@ -1,6 +1,7 @@
 import React from "react";
 import BackgroundIMG from "../assets/original.gif";
 import HubLogoIcon from "../assets/Register.png";
+import authStore from "../stores/authStore";
 import {
   Text,
   TextInput,
@@ -39,35 +40,58 @@ export const InputStyled = styled.TextInput`
 `;
 
 const SignUp = ({ navigation }) => {
-  // const [user, setUser] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   username: "",
-  //   password: "",
-  // });
+  const [user, setUser] = useState({
+    username: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
 
-  //   //handle submit
-  //   const handleSubmit = async () => {
-  //     await authStore.signup(user);
-  //     if (authStore.user) navigation.navigate("Shops");
-  //   };
+  //handle submit
+  const handleSubmit = async () => {
+    await authStore.signup(user);
+    if (authStore.user) navigation.navigate("Dashboard");
+  };
 
   return (
     <HomeBackground source={BackgroundIMG}>
       <View style={styles.container}>
         <HubLogoImage source={HubLogoIcon}></HubLogoImage>
         {/* <TitleStyled>Register</TitleStyled> */}
-        <TextInput style={styles.input} placeholder="First Name" />
-        <TextInput style={styles.input} placeholder="Last Name" />
-        <TextInput style={styles.input} placeholder="Email" />
-        <TextInput style={styles.input} placeholder="Username" />
-        <TextInput style={styles.input} placeholder="Password" />
+        <TextInput
+          style={styles.input}
+          placeholder="First Name"
+          autoCapitalize="none"
+          onChangeText={(firstName) => setUser({ ...user, firstName })}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Last Name"
+          autoCapitalize="none"
+          onChangeText={(lastName) => setUser({ ...user, lastName })}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          autoCapitalize="none"
+          onChangeText={(email) => setUser({ ...user, email })}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Username"
+          autoCapitalize="none"
+          onChangeText={(username) => setUser({ ...user, username })}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          autoCapitalize="none"
+          secureTextEntry={true}
+          onChangeText={(password) => setUser({ ...user, password })}
+        />
 
-        <TouchableOpacity
-          style={styles.submitButton}
-          onPress={() => navigation.navigate("Dashboard")}
-        >
+        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
           <Text style={styles.submitButtonText}> Sign Up </Text>
         </TouchableOpacity>
         <TextStyled> Already have an account? </TextStyled>
