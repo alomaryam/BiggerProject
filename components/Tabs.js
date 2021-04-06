@@ -1,16 +1,20 @@
 import React from "react";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import Search from "./Search";
-import Rooms from "./Rooms";
-import Profile from "./Profile";
+import Search from "./Dashboard/FriendsRoom/FriendRoom";
+import MyRooms from "./Dashboard/MyRooms/MyRoomsList";
+import Profile from "./Dashboard/Profile";
+import styled from "styled-components/native";
+import FriendsRoom from "./Dashboard/FriendsRoom/FriendRoom";
 
 const Tab = createMaterialBottomTabNavigator();
 
+
+
 function Tabs() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Search" component={Search} />
-      <Tab.Screen name="My Rooms" component={Rooms} />
+    <Tab.Navigator  barStyle={{ backgroundColor: '#694fad' }}>
+      <Tab.Screen name="Explore" component={FriendsRoom} />
+      <Tab.Screen name="My Rooms" component={MyRooms} />
       <Tab.Screen name="My Profile" component={Profile} />
     </Tab.Navigator>
   );

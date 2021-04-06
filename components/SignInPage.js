@@ -90,10 +90,11 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   submitButtonText: {
-    color: "white",
-    textAlign: "center",
+   
   },
 });
+
+// OLD ONE 
 // import React from "react";
 // import {
 //   Text,
