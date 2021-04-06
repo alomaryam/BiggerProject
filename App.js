@@ -10,20 +10,32 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 const { Navigator, Screen } = createStackNavigator();
 
+
 export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
         <Navigator>
           <Screen
-            name="StartUp"
+            name="Home"
             component={StartUp}
             options={{
               headerShown: false,
-            }}
+                  }}
           />
-          <Screen name="SignIn" component={SignIn} />
-          <Screen name="SignUp" component={SignUp} />
+          <Screen name="SignIn" 
+          component={SignIn}
+           options={{
+             headerTintColor:"white",
+             headerTitle:"",
+              headerTransparent: true
+              }} />
+              
+          <Screen name="SignUp" component={SignUp} options={{
+             headerTintColor:"white",
+             headerTitle:"",
+              headerTransparent: true
+              }}/>
           <Screen
             name="Dashboard"
             component={Tabs}

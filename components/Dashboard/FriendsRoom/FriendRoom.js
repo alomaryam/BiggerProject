@@ -1,7 +1,7 @@
 import React from "react";
 import { TextInput } from "react-native";
 
-const Search = ({ navigation }) => {
+const FriendsRoom = ({ navigation }) => {
   return (
     <TextInput onPress={() => navigation.navigate("Dashboard")}>
       {" "}
@@ -9,4 +9,4 @@ const Search = ({ navigation }) => {
     </TextInput>
   );
 };
-export default Search;
+export default FriendsRoom;

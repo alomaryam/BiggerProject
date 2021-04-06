@@ -18,6 +18,12 @@ export const ButtonStyled = styled.Text`
   text-align: center;
   background-color: rgb(189, 178, 255);
 `;
+export const TopStyling = styled.View`
+  height: 40%;
+  background-color: rgba(189, 178, 255, 0.62);
+  align-items: center;
+  /* justify-content: center; */
+`;
 
 export const BottomStyling = styled.View`
   height: 50%;
@@ -28,10 +34,13 @@ export const BottomStyling = styled.View`
 
 const Profile = ({ navigation }) => {
   return (
-    <>
-      <Text onPress={() => navigation.navigate("Dashboard")}> My Profile </Text>
+    <> 
+    <TopStyling>
+      <Text> My Profile </Text>
+</TopStyling>
       <BottomStyling>
         <ButtonView>
+          
           <ButtonStyled onPress={() => navigation.navigate("StartUp")}>
             Sign Out
           </ButtonStyled>
