@@ -1,6 +1,10 @@
 import React from "react";
 import BackgroundIMG from "../assets/original.gif";
 import HubLogoIcon from "../assets/HubLogoText.png";
+import authStore from "../stores/authStore";
+import { useState } from "react";
+import { Icon } from "native-base";
+
 import {
   Text,
   TextInput,
@@ -32,17 +36,63 @@ export const InputStyled = styled.TextInput`
   color: white;
 `;
 
+export const Iconstyled = styled(Icon)`
+  color: red;
+`;
+
 const SignIn = ({ navigation }) => {
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
+
+  const [passwordIcon, setPasswordIcon] = useState("eye");
+  const [passwordVisibilty, setPasswordVisibilty] = useState(true);
+
+  const handleSubmit = async () => {
+    await authStore.signin(user);
+    if (authStore.user) navigation.navigate("Dashboard");
+  };
+
+  const handlePassword = () => {
+    if (passwordIcon === "eye") {
+      setPasswordIcon("eye-off");
+      setPasswordVisibilty(false);
+    } else {
+      setPasswordIcon("eye");
+      setPasswordVisibilty(true);
+    }
+  };
+
   return (
     <HomeBackground source={BackgroundIMG}>
       <View style={styles.container}>
         <HubLogoImage source={HubLogoIcon}></HubLogoImage>
-        <InputStyled style={styles.input} placeholder="Username" />
-        <InputStyled style={styles.input} placeholder="Password" />
+        <InputStyled
+          style={styles.input}
+          placeholder="Username"
+          autoCapitalize="none"
+          onChangeText={(username) => setUser({ ...user, username })}
+        />
+
+        <InputStyled
+          style={styles.input}
+          placeholder="Password"
+          autoCapitalize="none"
+          secureTextEntry={passwordVisibilty}
+          onChangeText={(password) => setUser({ ...user, password })}
+        />
+
+        <Iconstyled
+          name={passwordIcon}
+          type="MaterialCommunityIcons"
+          onPress={handlePassword}
+        />
 
         <TouchableOpacity
           style={styles.submitButton}
-          onPress={() => navigation.navigate("Dashboard")}
+          // onPress={() => navigation.navigate("Dashboard")}
+          onPress={handleSubmit}
         >
           <TextStyled style={styles.submitButtonText}> Sign In </TextStyled>
         </TouchableOpacity>
@@ -89,12 +139,10 @@ const styles = StyleSheet.create({
     width: "30%",
     borderRadius: 20,
   },
-  submitButtonText: {
-   
-  },
+  submitButtonText: {},
 });
 
-// OLD ONE 
+// OLD ONE
 // import React from "react";
 // import {
 //   Text,

@@ -10,7 +10,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 const { Navigator, Screen } = createStackNavigator();
 
-
 export default function App() {
   return (
     <View style={styles.container}>
@@ -21,21 +20,27 @@ export default function App() {
             component={StartUp}
             options={{
               headerShown: false,
-                  }}
+            }}
           />
-          <Screen name="SignIn" 
-          component={SignIn}
-           options={{
-             headerTintColor:"white",
-             headerTitle:"",
-              headerTransparent: true
-              }} />
-              
-          <Screen name="SignUp" component={SignUp} options={{
-             headerTintColor:"white",
-             headerTitle:"",
-              headerTransparent: true
-              }}/>
+          <Screen
+            name="SignIn"
+            component={SignIn}
+            options={{
+              headerTintColor: "white",
+              headerTitle: "",
+              headerTransparent: true,
+            }}
+          />
+
+          <Screen
+            name="SignUp"
+            component={SignUp}
+            options={{
+              headerTintColor: "white",
+              headerTitle: "",
+              headerTransparent: true,
+            }}
+          />
           <Screen
             name="Dashboard"
             component={Tabs}

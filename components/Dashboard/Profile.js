@@ -1,6 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
+import SignoutButton from "./Buttons/SignOut";
 
 export const ButtonView = styled.View`
   border-style: none;
@@ -34,16 +35,13 @@ export const BottomStyling = styled.View`
 
 const Profile = ({ navigation }) => {
   return (
-    <> 
-    <TopStyling>
-      <Text> My Profile </Text>
-</TopStyling>
+    <>
+      <TopStyling>
+        <Text> My Profile </Text>
+      </TopStyling>
       <BottomStyling>
         <ButtonView>
-          
-          <ButtonStyled onPress={() => navigation.navigate("StartUp")}>
-            Sign Out
-          </ButtonStyled>
+          <SignoutButton />
         </ButtonView>
       </BottomStyling>
     </>

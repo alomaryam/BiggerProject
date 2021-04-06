@@ -8,11 +8,9 @@ import FriendsRoom from "./Dashboard/FriendsRoom/FriendRoom";
 
 const Tab = createMaterialBottomTabNavigator();
 
-
-
 function Tabs() {
   return (
-    <Tab.Navigator  barStyle={{ backgroundColor: '#694fad' }}>
+    <Tab.Navigator barStyle={{ backgroundColor: "#694fad" }}>
       <Tab.Screen name="Explore" component={FriendsRoom} />
       <Tab.Screen name="My Rooms" component={MyRooms} />
       <Tab.Screen name="My Profile" component={Profile} />
