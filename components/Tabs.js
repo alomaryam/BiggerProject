@@ -1,10 +1,10 @@
 import React from "react";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import Search from "./Dashboard/FriendsRoom/FriendRoom";
+import Search from "./Dashboard/FriendsRoom/FriendRoomList";
 import MyRooms from "./Dashboard/MyRooms/MyRoomsList";
 import Profile from "./Dashboard/Profile";
 import styled from "styled-components/native";
-import FriendsRoom from "./Dashboard/FriendsRoom/FriendRoom";
+import FriendsRoom from "./Dashboard/FriendsRoom/FriendRoomList";
 
 const Tab = createMaterialBottomTabNavigator();
 

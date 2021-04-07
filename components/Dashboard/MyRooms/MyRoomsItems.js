@@ -13,11 +13,11 @@ const TextStyled = styled.Text`
   width: 100%;
 `;
 
-const RoomsItems = ({ room }) => {
+const RoomsItems = ({ room, navigation }) => {
   return (
     <>
       <ListItem>
-        <TouchableOpacity onPress={() => alert("navigate to room page")}>
+        <TouchableOpacity onPress={() => alert("Go to room posts")}>
           <TextStyled>
             Room: {room.name} {`\n`}
             Description: {room.description}

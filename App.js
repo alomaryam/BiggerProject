@@ -5,6 +5,7 @@ import StartUp from "./components/StartUpPage";
 import SignIn from "./components/SignInPage";
 import SignUp from "./components/SignUpPage";
 import Tabs from "./components/Tabs";
+import RoomDetail from "./components/Dashboard/MyRooms/RoomDetail";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -48,6 +49,7 @@ export default function App() {
               headerLeft: null,
             }}
           />
+          <Screen name="RoomDetail" component={RoomDetail} />
         </Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
