@@ -17,7 +17,7 @@ import { useState } from "react";
 export const HubLogoImage = styled.Image`
   flex: 1;
   margin-right: 40%;
-  resize-mode: contain;
+  /* resize-mode: contain; */
   justify-content: center;
   border-width: 0.2px;
   border-color: "rgba(239, 236, 253, 1)";

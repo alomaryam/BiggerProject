@@ -2,6 +2,8 @@ import React from "react";
 import { Text } from "react-native";
 import styled from "styled-components/native";
 import SignoutButton from "./Buttons/SignOut";
+import authStore from "../../stores/authStore";
+// import { Spinner } from "native-base";
 
 export const ButtonView = styled.View`
   border-style: none;
@@ -33,11 +35,17 @@ export const BottomStyling = styled.View`
   justify-content: center;
 `;
 
-const Profile = ({ navigation }) => {
+const Profile = () => {
+  // if (authStore.loading) return <Spinner />;
   return (
     <>
       <TopStyling>
+        <Text> Image </Text>
         <Text> My Profile </Text>
+        <Text> {authStore.user.firstName}</Text>
+        <Text> {authStore.user.lastName} </Text>
+        <Text> {authStore.user.email} </Text>
+        <Text> {authStore.user.username} </Text>
       </TopStyling>
       <BottomStyling>
         <ButtonView>

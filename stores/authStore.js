@@ -6,11 +6,25 @@ import decode from "jwt-decode";
 
 //storage
 import AsyncStorage from "@react-native-community/async-storage";
+
 class AuthStore {
   user = null;
+  loading = true;
   constructor() {
     makeAutoObservable(this);
   }
+
+  getUserById = (userId) => this.user.find((user) => user.id === userId);
+
+  fetchUsers = async () => {
+    try {
+      const response = await instance.get("/users");
+      this.user = response.data;
+      this.loading = false;
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   //set user
   setUser = async (token) => {
