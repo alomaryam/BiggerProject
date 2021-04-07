@@ -1,18 +1,64 @@
 import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import Search from "./Dashboard/FriendsRoom/FriendRoomList";
 import MyRooms from "./Dashboard/MyRooms/MyRoomsList";
 import Profile from "./Dashboard/Profile";
-import styled from "styled-components/native";
 import FriendsRoom from "./Dashboard/FriendsRoom/FriendRoomList";
+import RoomDetail from "./Dashboard/MyRooms/MyRoomDetail";
+import FriendsRoomDetail from "./Dashboard/FriendsRoom/FriendsRoomDetail";
+
+const { Navigator, Screen } = createStackNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
+
+const ExploreNavigator = () => {
+  return (
+    <Navigator>
+      <Screen
+        name="Explore"
+        component={FriendsRoom}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Screen
+        name="My Rooms"
+        component={MyRooms}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Screen
+        name="My Profile"
+        component={Profile}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Screen
+        name="FriendsRoomDetail"
+        component={FriendsRoomDetail}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Screen
+        name="RoomDetail"
+        component={RoomDetail}
+        options={{
+          headerShown: false,
+        }}
+      />
+    </Navigator>
+  );
+};
 
 function Tabs() {
   return (
     <Tab.Navigator barStyle={{ backgroundColor: "#694fad" }}>
-      <Tab.Screen name="Explore" component={FriendsRoom} />
-      <Tab.Screen name="My Rooms" component={MyRooms} />
+      <Tab.Screen name="Explore" component={ExploreNavigator} />
+      <Tab.Screen name="My Rooms" component={ExploreNavigator} />
       <Tab.Screen name="My Profile" component={Profile} />
     </Tab.Navigator>
   );

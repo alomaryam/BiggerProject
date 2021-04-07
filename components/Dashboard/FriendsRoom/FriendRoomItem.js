@@ -17,7 +17,9 @@ const FriendsRoomsItems = ({ room, navigation }) => {
   return (
     <>
       <ListItem>
-        <TouchableOpacity onPress={() => alert("Go to room posts")}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("FriendsRoomDetail")}
+        >
           <TextStyled>
             Room: {room.name} {`\n`}
             Description: {room.description}

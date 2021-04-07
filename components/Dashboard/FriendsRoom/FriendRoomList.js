@@ -4,9 +4,9 @@ import roomStore from "../../../stores/roomStore";
 import { observer } from "mobx-react";
 import { List, Content } from "native-base";
 
-let FriendsRoomsList = () => {
+let FriendsRoomsList = ({ navigation }) => {
   const RoomList = roomStore.room.map((room) => (
-    <FriendsRoomsItems room={room} key={room.id} />
+    <FriendsRoomsItems navigation={navigation} room={room} key={room.id} />
   ));
 
   return (

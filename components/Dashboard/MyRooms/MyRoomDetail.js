@@ -15,7 +15,7 @@ const RoomDetail = () => {
   return (
     <>
       <TopStyling>
-        <Text> Image </Text>
+        <Text> MY CHANEL POSTS!!! </Text>
       </TopStyling>
     </>
   );
