@@ -1,13 +1,13 @@
 import { makeObservable, observable, action } from "mobx";
 import instance from "./instance";
 
-class postStore {
+class PostStore {
   post = [];
   loading = true;
 
   fetchPosts = async () => {
     try {
-      const response = await instance.get("/posts");
+      const response = await instance.get(`/rooms/${roomId}/posts`);
       this.post = response.data;
       this.loading = false;
     } catch (error) {

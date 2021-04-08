@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import instance from "./instance";
+import roomStore from "./roomStore";
 
 //decode
 import decode from "jwt-decode";
@@ -31,6 +32,9 @@ class AuthStore {
     await AsyncStorage.setItem("myToken", token);
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     this.user = decode(token);
+
+    //fetch rooms
+    roomStore.fetchRooms();
   };
 
   //sign up

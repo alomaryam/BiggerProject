@@ -9,10 +9,6 @@ let RoomsList = ({ navigation }) => {
     <RoomsItems navigation={navigation} room={room} key={room.id} />
   ));
 
-  return (
-    <Content>
-      <Text>{RoomsList}</Text>
-    </Content>
-  );
+  return <Content>{RoomsList}</Content>;
 };
 export default observer(RoomsList);

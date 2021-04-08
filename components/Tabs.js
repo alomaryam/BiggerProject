@@ -56,8 +56,16 @@ const ExploreNavigator = () => {
 function Tabs() {
   return (
     <Tab.Navigator barStyle={{ backgroundColor: "#694fad" }}>
-      <Tab.Screen name="Explore" component={ExploreNavigator} />
-      <Tab.Screen name="My Rooms" component={ExploreNavigator} />
+      <Tab.Screen
+        name="Explore"
+        component={ExploreNavigator}
+        // options={{ tabBarLabel: "FriendsRoomDetail" }}
+      />
+      <Tab.Screen
+        name="My Rooms"
+        component={ExploreNavigator}
+        // options={{ tabBarLabel: "RoomDetail" }}
+      />
       <Tab.Screen name="My Profile" component={Profile} />
     </Tab.Navigator>
   );
