@@ -79,8 +79,8 @@ const Profile = ({ navigation }) => {
         <TextStyled> {authStore.user.email} </TextStyled>
         <TextStyled> {authStore.user.username} </TextStyled>
 
-        <TouchableOpacity onPress={() => navigation.navigate("Explore")}>
-          <Text>Explore</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("MyRooms")}>
+          <Text>My Rooms</Text>
         </TouchableOpacity>
       </BottomStyling>
 

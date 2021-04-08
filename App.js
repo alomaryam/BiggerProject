@@ -12,7 +12,7 @@ import {
 } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import FriendRoomList from "./components/Dashboard/FriendsRoom/FriendRoomList";
-
+import MyRooms from "./components/Dashboard/MyRooms/MyRoomsList";
 const { Navigator, Screen } = createStackNavigator();
 
 export default function App() {
@@ -53,9 +53,18 @@ export default function App() {
               headerLeft: null,
             }}
           />
-          <Screen
+          {/* <Screen
             name="Explore"
             component={FriendRoomList}
+            options={
+              {
+                // headerLeft: null,
+              }
+            }
+          /> */}
+          <Screen
+            name="MyRooms"
+            component={MyRooms}
             options={
               {
                 // headerLeft: null,

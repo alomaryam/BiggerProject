@@ -14,20 +14,20 @@ const Tab = createMaterialBottomTabNavigator();
 const ExploreNavigator = () => {
   return (
     <Navigator>
-      <Screen
+      {/* <Screen
         name="My Rooms"
         component={MyRooms}
         options={{
           headerShown: false,
         }}
-      />
-      {/* <Screen
+      /> */}
+      <Screen
         name="Explore"
         component={FriendsRoom}
         options={{
           headerShown: false,
         }}
-      /> */}
+      />
 
       <Screen
         name="My Profile"
@@ -58,10 +58,15 @@ function Tabs() {
   return (
     <Tab.Navigator barStyle={{ backgroundColor: "#694fad" }}>
       <Tab.Screen
-        name="My Rooms"
+        name="Explore"
         component={ExploreNavigator}
         // options={{ tabBarLabel: "RoomDetail" }}
       />
+      {/* <Tab.Screen
+        name="My Rooms"
+        component={ExploreNavigator}
+        // options={{ tabBarLabel: "RoomDetail" }}
+      /> */}
       <Tab.Screen name="My Profile" component={Profile} />
     </Tab.Navigator>
   );
