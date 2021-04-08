@@ -5,7 +5,7 @@ import authStore from "../../stores/authStore";
 import dummyImage from "../../assets/dummyimage.png";
 import { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
-import Create from "./Buttons/Create";
+import Create from "./Buttons/CreateRoom";
 
 // import { Spinner } from "native-base";
 

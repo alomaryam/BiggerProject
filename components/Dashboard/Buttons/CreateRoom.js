@@ -23,13 +23,14 @@ const AddRoom = ({ navigation }) => {
     description: "",
   });
 
-  const handleChange = (event) => {
-    setRoom({ ...room, [event.target.name]: event.target.text });
-  };
+  //   const handleChange = (event) => {
+  //     setRoom({ ...room, [event.target.name]: event.target.value });
+  //   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     roomStore.createRoom(room);
+    // navigation.navigate("My Rooms");
   };
 
   return (
@@ -39,18 +40,22 @@ const AddRoom = ({ navigation }) => {
         placeholder="Name"
         type="text"
         name="name"
-        onChangeText={handleSubmit}
+        // onChange={handleChange}
+        onChangeText={(name) => setRoom({ ...room, name })}
+        autoCapitalize="none"
       />
       <Input
         placeholder="Description"
         type="text"
         name="description"
-        onChange={handleChange}
+        // onChange={handleChange}
+        onChangeText={(description) => setRoom({ ...room, description })}
+        autoCapitalize="none"
       />
       <View>
         <Textt onPress={handleSubmit}>Add Room</Textt>
-        {/* <TouchableOpacity onPress={() => navigation.navigate("My Rooms")}></TouchableOpacity> */}
-        <TouchableOpacity onPress={() => alert("Go to My Rooms")}>
+        <TouchableOpacity onPress={() => alert("go to my rooms")}>
+          {/* <TouchableOpacity onPress={() => navigation.navigate("My Rooms")}> */}
           <Textt>Show Rooms </Textt>
         </TouchableOpacity>
       </View>
