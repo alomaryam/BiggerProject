@@ -11,7 +11,7 @@ let RoomsList = ({ navigation }) => {
 
   return (
     <Content>
-      <List>{RoomsList}</List>
+      <Text>{RoomsList}</Text>
     </Content>
   );
 };

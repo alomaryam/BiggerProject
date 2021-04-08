@@ -1,9 +1,12 @@
 import React from "react";
-import { Text , View, Image} from "react-native";
 import styled from "styled-components/native";
 import SignoutButton from "./Buttons/SignOut";
 import authStore from "../../stores/authStore";
-import dummyImage from "../../assets/dummyimage.png"
+import dummyImage from "../../assets/dummyimage.png";
+import { useState } from "react";
+import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import Create from "./Buttons/Create";
+
 // import { Spinner } from "native-base";
 
 export const ButtonView = styled.View`
@@ -38,39 +41,113 @@ export const BottomStyling = styled.View`
 `;
 
 export const StyleImage = styled.Image`
-margin-top:10%;
-height:150px;
-width:150px;
-border-radius:100;
+  margin-top: 10%;
+  height: 150px;
+  width: 150px;
+  border-radius: 100;
 `;
-export const TextStyled =styled.Text`
-font-size:25px;
-padding:3%;
-/* text-align:flex; */
-/* border-bottom:10px; */
-color:white;
+export const TextStyled = styled.Text`
+  font-size: 25px;
+  padding: 3%;
+  /* text-align:flex; */
+  /* border-bottom:10px; */
+  color: white;
 `;
 
-const Profile = () => {
+const Profile = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = useState(false);
   // if (authStore.loading) return <Spinner />;
   return (
     <>
       <TopStyling>
-    
         <View>
-        <SignoutButton />
-        <StyleImage source={dummyImage}></StyleImage>
+          <SignoutButton />
+          <StyleImage source={dummyImage}></StyleImage>
         </View>
-
       </TopStyling>
       <BottomStyling>
-      
-      <TextStyled> {authStore.user.firstName}</TextStyled>
+        <TextStyled> {authStore.user.firstName}</TextStyled>
         <TextStyled> {authStore.user.lastName} </TextStyled>
         <TextStyled> {authStore.user.email} </TextStyled>
         <TextStyled> {authStore.user.username} </TextStyled>
       </BottomStyling>
+
+      <View style={styles.centeredView}>
+        <Modal
+          navigation="navigation"
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            alert("Modal has been closed.");
+            setModalVisible(!modalVisible);
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Create />
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>Close</Text>
+              </Pressable>
+            </View>
+          </View>
+        </Modal>
+        <Pressable
+          style={[styles.button, styles.buttonOpen]}
+          onPress={() => setModalVisible(true)}
+        >
+          <Text style={styles.textStyle}>Create Room</Text>
+        </Pressable>
+      </View>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
+  },
+});
+
 export default Profile;

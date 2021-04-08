@@ -2,17 +2,21 @@ import { makeObservable, observable, action } from "mobx";
 import instance from "./instance";
 
 class RoomStore {
+  exploreRoom = [];
   room = [];
   loading = true;
 
   constructor() {
     makeObservable(this, {
       room: observable,
-      fetchRooms: action,
+      exploreRoom: observable,
       deleteRoom: action,
       createRoom: action,
+      fetchRooms: action,
+      fetchExplore: action,
     });
   }
+
   fetchRooms = async () => {
     try {
       const response = await instance.get("/rooms");
@@ -20,6 +24,16 @@ class RoomStore {
       this.loading = false;
     } catch (error) {
       console.error("roomStore -> fetchRooms -> error", error);
+    }
+  };
+
+  fetchExplore = async () => {
+    try {
+      const response = await instance.get("/rooms");
+      this.exploreRoom = response.data;
+      this.loading = false;
+    } catch (error) {
+      console.error("roomStore -> fetchExplore -> error", error);
     }
   };
 
@@ -43,5 +57,6 @@ class RoomStore {
 }
 const roomStore = new RoomStore();
 roomStore.fetchRooms();
+roomStore.fetchExplore();
 
 export default roomStore;

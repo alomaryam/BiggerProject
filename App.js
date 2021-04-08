@@ -5,7 +5,10 @@ import StartUp from "./components/StartUpPage";
 import SignIn from "./components/SignInPage";
 import SignUp from "./components/SignUpPage";
 import Tabs from "./components/Tabs";
-import { NavigationContainer } from "@react-navigation/native";
+import {
+  NavigationContainer,
+  NavigationHelpersContext,
+} from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 const { Navigator, Screen } = createStackNavigator();
