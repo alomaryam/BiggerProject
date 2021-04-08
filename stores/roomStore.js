@@ -29,7 +29,7 @@ class RoomStore {
 
   fetchExplore = async () => {
     try {
-      const response = await instance.get("/rooms");
+      const response = await instance.get("/rooms/exploreRooms");
       this.exploreRoom = response.data;
       this.loading = false;
     } catch (error) {
@@ -56,6 +56,5 @@ class RoomStore {
   };
 }
 const roomStore = new RoomStore();
-roomStore.fetchExplore();
 
 export default roomStore;

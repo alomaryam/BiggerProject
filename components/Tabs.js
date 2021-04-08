@@ -15,19 +15,20 @@ const ExploreNavigator = () => {
   return (
     <Navigator>
       <Screen
-        name="Explore"
-        component={FriendsRoom}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Screen
         name="My Rooms"
         component={MyRooms}
         options={{
           headerShown: false,
         }}
       />
+      {/* <Screen
+        name="Explore"
+        component={FriendsRoom}
+        options={{
+          headerShown: false,
+        }}
+      /> */}
+
       <Screen
         name="My Profile"
         component={Profile}
@@ -56,11 +57,6 @@ const ExploreNavigator = () => {
 function Tabs() {
   return (
     <Tab.Navigator barStyle={{ backgroundColor: "#694fad" }}>
-      <Tab.Screen
-        name="Explore"
-        component={ExploreNavigator}
-        // options={{ tabBarLabel: "FriendsRoomDetail" }}
-      />
       <Tab.Screen
         name="My Rooms"
         component={ExploreNavigator}

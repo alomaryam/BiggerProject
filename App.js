@@ -5,11 +5,13 @@ import StartUp from "./components/StartUpPage";
 import SignIn from "./components/SignInPage";
 import SignUp from "./components/SignUpPage";
 import Tabs from "./components/Tabs";
+
 import {
   NavigationContainer,
   NavigationHelpersContext,
 } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import FriendRoomList from "./components/Dashboard/FriendsRoom/FriendRoomList";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -50,6 +52,15 @@ export default function App() {
             options={{
               headerLeft: null,
             }}
+          />
+          <Screen
+            name="Explore"
+            component={FriendRoomList}
+            options={
+              {
+                // headerLeft: null,
+              }
+            }
           />
         </Navigator>
       </NavigationContainer>

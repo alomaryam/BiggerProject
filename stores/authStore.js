@@ -35,6 +35,7 @@ class AuthStore {
 
     //fetch rooms
     roomStore.fetchRooms();
+    roomStore.fetchExplore();
   };
 
   //sign up

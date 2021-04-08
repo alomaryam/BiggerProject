@@ -4,7 +4,15 @@ import SignoutButton from "./Buttons/SignOut";
 import authStore from "../../stores/authStore";
 import dummyImage from "../../assets/dummyimage.png";
 import { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import {
+  Alert,
+  Modal,
+  StyleSheet,
+  Text,
+  Pressable,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import Create from "./Buttons/CreateRoom";
 
 // import { Spinner } from "native-base";
@@ -70,6 +78,10 @@ const Profile = ({ navigation }) => {
         <TextStyled> {authStore.user.lastName} </TextStyled>
         <TextStyled> {authStore.user.email} </TextStyled>
         <TextStyled> {authStore.user.username} </TextStyled>
+
+        <TouchableOpacity onPress={() => navigation.navigate("Explore")}>
+          <Text>Explore</Text>
+        </TouchableOpacity>
       </BottomStyling>
 
       <View style={styles.centeredView}>
